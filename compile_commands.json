@@ -1,0 +1,21 @@
+[
+  {
+    "file": "src/cmd/cmd.c",
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-Isrc/core",
+      "-Isrc/cmd",
+      "-Isrc/storage",
+      "-Isrc/cat",
+      "-c",
+      "src/cmd/cmd.c",
+      "-o",
+      "build/cmd/cmd.o"
+    ],
+    "directory": "/Users/zhangrui/Documents/我玩会/todo_CLI",
+    "output": "build/cmd/cmd.o"
+  }
+]

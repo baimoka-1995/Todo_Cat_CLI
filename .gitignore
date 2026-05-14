@@ -1,0 +1,18 @@
+# Build artifacts
+build/
+*.o
+*.a
+*.so
+
+# Executable
+todo
+
+# Local data files
+data/todo.txt
+
+# macOS
+.DS_Store
+
+# Editor files
+*.swp
+*~

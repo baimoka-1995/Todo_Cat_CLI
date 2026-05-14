@@ -1,0 +1,85 @@
+## 结构：
+
+```
+todo/
+├── Makefile
+├── todo                  # 可执行文件
+├── build/                # .o 中间文件
+│
+├── data/
+│   └── todo.txt          # 持久化
+│
+└── src/                  # 功能实现
+    │
+    ├── main.c
+    │
+    ├── cat/
+    │   ├── cat.c
+    │   ├── cat.h
+    │   ├── cat_assets.c
+    │   └── cat_assets.h
+    │
+    ├── core/
+    │   ├── list.c
+    │   ├── list.h
+    │   ├── search.c
+    │   └── search.h
+    │
+    ├── cmd/
+    │   ├── cmd.c
+    │   └── cmd.h
+    │
+    └── storage/
+        ├── storage.c
+        └── storage.h
+
+```
+
+## zsh 自动触发 `cat-wait`
+
+如果你希望在 shell 命令执行后自动运行 `todo cat-wait`，可在 `~/.zshrc` 中添加：
+
+```zsh
+typeset -g LAST_CMD
+
+preexec() {
+  LAST_CMD=$1
+}
+
+precmd() {
+  if [[ ${LAST_CMD%% *} != todo ]]; then
+    todo cat-wait
+  fi
+}
+```
+
+这个配置会：
+
+- 每次命令执行完后触发 `todo cat-wait`
+- 但如果刚执行的是 `todo ...` 命令，就不会再额外执行一次
+
+## 权限检查
+
+检查 `~/.zshrc` 是否可写：
+
+```zsh
+ls -l ~/.zshrc
+```
+
+如果不可写，给当前用户添加写权限：
+
+```zsh
+chmod u+w ~/.zshrc
+```
+
+检查 `todo` 是否可执行：
+
+```zsh
+ls -l ./todo
+```
+
+如果需要，可执行：
+
+```zsh
+chmod u+x ./todo
+```
