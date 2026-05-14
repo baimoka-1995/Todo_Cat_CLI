@@ -83,3 +83,39 @@ ls -l ./todo
 ```zsh
 chmod u+x ./todo
 ```
+
+## 使用方法
+#### 列出完整清单
+```
+todo today
+```
+
+#### 添加 (Add) ：
+```
+todo add AAA 1
+```
+其中 1 为 priority（$p\in [1,4]$），内容可以有空格
+
+#### 删除 (Delete)：
+```
+todo delete AAA
+```
+字串搜索：输入某任务的关键字/词即可
+
+#### 完成 (Done)：
+```
+todo done AAA
+```
+字串搜索：输入某任务的关键字/词即可
+
+#### 查询 (Search)：
+```
+todo find AAA
+```
+字串搜索：输入某任务的关键字/词即可
+
+#### 排序 (Sort)：
+```
+todo sort
+```
+按照优先级排序
