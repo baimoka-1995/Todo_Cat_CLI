@@ -42,12 +42,17 @@ todo/
 ```zsh
 typeset -g LAST_CMD
 
+if [[ $- == *i* ]]; then
+    todo time-check
+    todo today
+fi
+
 preexec() {
   LAST_CMD=$1
 }
 
 precmd() {
-  if [[ ${LAST_CMD%% *} != todo ]]; then
+  if [[ $- == *i* ]] && [[ ${LAST_CMD%% *} != todo ]]; then
     todo cat-wait
   fi
 }
@@ -55,8 +60,8 @@ precmd() {
 
 这个配置会：
 
-- 每次命令执行完后触发 `todo cat-wait`
-- 但如果刚执行的是 `todo ...` 命令，就不会再额外执行一次
+- 每次打开终端实现一次 todo time-check 和 todo today，如果不需要每次打开终端列出一次清单，可以删掉 todo today
+- 每次命令后执行一次 cat-wait 进行交互，但如果刚执行的是 `todo ...` 命令，就不会再额外执行一次
 
 ## 权限检查
 
