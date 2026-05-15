@@ -20,4 +20,8 @@ void cat_on_done(CatState *cat);
 void cat_on_incorrect(CatState *cat);
 void cat_wait(CatState *cat);
 
+void cat_is_morning(CatState *cat);
+void cat_is_night(CatState *cat);
+void cat_random(CatState *cat);
+
 #endif

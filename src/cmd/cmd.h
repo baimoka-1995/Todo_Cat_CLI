@@ -14,5 +14,6 @@ int cmd_find (Schedule *list , CatState *cat ,  int argc , char *argv[]);
 int cmd_sort(Schedule *list , CatState *cat ,  int argc , char *argv[]);
 
 int cmd_cat_wait(CatState *cat);
+int cmd_time_check(CatState *cat);
 
 #endif

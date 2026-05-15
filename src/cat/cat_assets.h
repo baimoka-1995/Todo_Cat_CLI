@@ -11,4 +11,7 @@ extern const char *open_lines[];
 extern const char *incorrect_lines[];
 extern const char *undone_lines[];
 
+extern const char *morning_lines[];
+extern const char *night_lines[];
+
 #endif

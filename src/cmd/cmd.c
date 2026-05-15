@@ -62,6 +62,13 @@ int dispatch(Schedule *list , CatState *cat ,  int argc , char *argv[]){
         return cmd_cat_wait(cat);
     }
 
+    else if (!strcmp(cmd, "time-check")){
+        
+        return cmd_time_check(cat);
+    }
+
+
+
     return 3;
 }
 
@@ -316,9 +323,25 @@ int cmd_sort (Schedule *list , CatState *cat ,  int argc , char *argv[]){
 }
 
 int cmd_cat_wait(CatState *cat){
-    int r = rand() % 10;
-    if (r > 3) {
+    int r = rand() % 100;
+    if (r > 30) {
         cat_wait(cat);
+    } else if (r < 2){
+        cat_random(cat);
     }
+    return 0;
+}
+
+int cmd_time_check(CatState *cat){
+    time_t now = time(NULL);
+    struct tm *t = localtime(&now);
+    int hour = t->tm_hour;
+
+    if ((hour >= 0 && hour <= 4) || hour >= 23){
+        cat_is_night(cat);
+    } else if (hour <= 11 && hour >= 7){
+        cat_is_morning(cat);
+    }
+
     return 0;
 }

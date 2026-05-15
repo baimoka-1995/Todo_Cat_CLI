@@ -171,3 +171,30 @@ void cat_wait(CatState *cat){
     printf("\n%s " , cat_pick(lonely_face));
     printf("%s\n" , cat_pick(undone_lines));
 }
+
+void cat_random(CatState *cat){
+    if (cat->mood <= 95){
+        cat->mood += 5;
+    }
+
+    printf("\n%s " , cat_pick(lonely_face));
+    printf("我很想你...\n");
+}
+
+void cat_is_morning(CatState *cat){
+    if (cat->mood <= 90){
+        cat->mood+= 10;
+    }
+
+    printf("\n%s " , cat_pick(happy_face));
+    printf("%s\n" , cat_pick(morning_lines));
+}
+
+void cat_is_night(CatState *cat){
+    if (cat->mood <= 90){
+        cat->mood-= 5;
+    }
+
+    printf("\n%s " , cat_pick(lonely_face));
+    printf("%s\n" , cat_pick(night_lines));
+}
