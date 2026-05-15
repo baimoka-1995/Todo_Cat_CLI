@@ -7,7 +7,8 @@ todo/
 ├── build/                # .o 中间文件
 │
 ├── data/
-│   └── todo.txt          # 持久化
+│   ├── MYCAT.txt
+│   └── MYLIST.txt          # 持久化
 │
 └── src/                  # 功能实现
     │
