@@ -37,7 +37,7 @@ todo/
 
 ## zsh 自动触发 `cat-wait`
 
-如果你希望在 shell 命令执行后自动运行 `todo cat-wait`，可在 `~/.zshrc` 中添加：
+在 `~/.zshrc` 末尾添加 (`nano ~/.zshrc`)：
 
 ```zsh
 typeset -g LAST_CMD
@@ -57,11 +57,13 @@ precmd() {
   fi
 }
 ```
+直接复制即可。
 
-这个配置会：
+> 这个配置会：
 
-- 每次打开终端实现一次 todo time-check 和 todo today，如果不需要每次打开终端列出一次清单，可以删掉 todo today
-- 每次命令后执行一次 cat-wait 进行交互，但如果刚执行的是 `todo ...` 命令，就不会再额外执行一次
+> 1. 每次打开终端实现一次 todo time-check 和 todo today，如果不需要每次打开终端列出一次清单，可以删掉 todo today。
+
+> 2. 每次命令后执行一次 cat-wait 进行交互，但如果刚执行的是 `todo ...` 命令，就不会再额外执行一次
 
 ## 权限检查
 
@@ -105,19 +107,19 @@ todo add AAA 1
 ```
 todo delete AAA
 ```
-字串搜索：输入某任务的关键字/词即可
+字串搜索：输入某任务的关键字/词即可，中间用空格隔开
 
 #### 完成 (Done)：
 ```
 todo done AAA
 ```
-字串搜索：输入某任务的关键字/词即可
+字串搜索：输入某任务的关键字/词即可，中间用空格隔开
 
 #### 查询 (Search)：
 ```
 todo find AAA
 ```
-字串搜索：输入某任务的关键字/词即可
+字串搜索：输入某任务的关键字/词即可，中间用空格隔开
 
 #### 排序 (Sort)：
 ```
